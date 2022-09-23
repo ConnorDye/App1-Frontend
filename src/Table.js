@@ -9,9 +9,16 @@ function TableBody(props) {
     // is this a lambda?
     const rows = props.characterData.map((row, index) => {
       return (
+        // <tr key={index}>
+        //   <td>{row.name}</td>         
+        //   <td>{row.job}</td>
+        // </tr>
         <tr key={index}>
-          <td>{row.name}</td>         
+          <td>{row.name}</td>
           <td>{row.job}</td>
+          <td>
+            <button onClick={() => props.removeCharacter(index)}>Delete</button>
+          </td>
         </tr>
       );
      }
@@ -23,7 +30,16 @@ function TableBody(props) {
      );
   }
 function TableHeader() {
-    return <thead />
+  return (
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Job</th>
+      <th>Remove</th>
+    </tr>
+  </thead> )
+
+    
 }
 
 //**So the export allows us to import in our main MyApp.js for React to render?**
@@ -32,14 +48,23 @@ function TableHeader() {
 // **What's the benefit of using props to pass data to the child components compared to returning? Is this so we can modify the state and make it interactive for later?
 
 // {/* is this where we are passing props to tablebody? */}
-function Table(props) {
-    return (
-      <table>
-        <TableHeader />
+// function Table(props) {
+//     return (
+//       <table>
+//         <TableHeader />
         
-        <TableBody characterData={props.characterData} />
-      </table>
-    );
-} 
+//         <TableBody characterData={props.characterData} />
+//       </table>
+//     );
+// } 
+
+function Table (props) {
+  return (
+    <table>
+      <TableHeader />
+      <TableBody characterData={props.characterData} removeCharacter={props.removeCharacter} />
+    </table>
+  );
+}
 
 export default Table;
