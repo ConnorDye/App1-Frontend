@@ -38,7 +38,7 @@ function Form(props) {
         id="name"
         value={person.name}
         onChange={handleChange} />
-        <input type="button" value="Submit" onClick={submitForm} />
+        {/* <input type="button" value="Submit" onClick={submitForm} /> */}
       <label htmlFor="job">Job</label>
       <input
         type="text"
