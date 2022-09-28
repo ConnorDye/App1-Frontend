@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import axios from 'axios';
 import Table from './Table';
 import Form from './Form';
 
@@ -43,7 +44,19 @@ function MyApp() {
   //       job: 'Bartender',
   //     },
   //   ]);  
-  const [characters, setCharacters] = useState([]);
+const [characters, setCharacters] = useState([]);
+
+async function fetchAll(){
+  try {
+     const response = await axios.get('http://localhost:5000/users');
+     return response.data.users_list;     
+  }
+  catch (error){
+     //We're not handling errors. Just logging into the console.
+     console.log(error); 
+     return false;         
+  }
+}
 
 function removeOneCharacter (index) {
   const updated = characters.filter((character, i) => {
