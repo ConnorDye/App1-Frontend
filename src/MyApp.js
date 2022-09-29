@@ -69,6 +69,10 @@ useEffect(() => {
 async function makePostCall(person){
   try {
      const response = await axios.post('http://localhost:5000/users', person);
+    //  console.log(201)
+     person["name"]= response.data["name"]
+     person["job"] = response.data["job"]
+     person["id"] = response.data["id"]
      return response;
   }
   catch (error) {
@@ -76,6 +80,7 @@ async function makePostCall(person){
      return false;
   }
 }
+
 
 //FRONT END
 function removeOneCharacter (index) {
@@ -92,6 +97,7 @@ function removeOneCharacter (index) {
 function updateList(person) { 
   makePostCall(person).then( result => {
   if (result && result.status === 200)
+     console.log(person)
      setCharacters([...characters, person] );
   });
 }
