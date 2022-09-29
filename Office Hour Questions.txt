@@ -1,9 +1,1 @@
-1.) <Form handleSubmit={updateList} />
-    a.) So here a prop is handleSubmit? And each prop gets its own name and we access it via props."propname" because its a prop class?
-    b.) what exactly does the updateList mean here? How does this spread work?
-        function updateList(person) {
-            setCharacters([...characters, person]);
-        }
-
-2.) What exactly is the form of const [characters, setCharacters] = useState([])?
-    a.) so setCharacters is some function that allows us to modify characters? Where is it definined?
+1.) And that's an await call, meaning it's a non-blocking operation, thus allowing our frontend to run other threads if needed. 
