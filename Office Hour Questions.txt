@@ -1,1 +1,2 @@
-1.) And that's an await call, meaning it's a non-blocking operation, thus allowing our frontend to run other threads if needed. 
+1.) Does state always get passed from the parent MyApp() component downwards?
+    
