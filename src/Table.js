@@ -20,7 +20,7 @@ function TableBody(props) {
           <td>
              {/* index is the index of the person */}
              {/* send the row.id back to delete */}
-            <button onClick={() => props.removeCharacter(index)}>Delete</button> 
+            <button onClick={() => props.removeCharacter(index, row.id)}>Delete</button> 
           </td>
         </tr>
       );
